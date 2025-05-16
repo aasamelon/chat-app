@@ -1,3 +1,4 @@
+Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
@@ -35,6 +36,7 @@ end
 I18n.locale = "en"
 
 RSpec.configure do |config|
+  config.include SignInSupport
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')
